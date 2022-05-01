@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from  'react-router-dom'
 import CheckIn from './pages/CheckIn';
 import AllSet from './pages/AllSet';
-import { LoadingSpinner } from 'video-react';
+import './App.css'
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
   return (
     <>
 
+      {/* CODE TO DISPLAY BACKEND
       <div>
         {(typeof data.members === 'undefined') ? (
           <p>Loading...</p>
@@ -30,12 +31,16 @@ function App() {
             <p key={i}>{member}</p>
           ))
         )}
+      </div> */}
+
+      <div className="font-link">
+        <Router>
+          <Routes>
+            <Route path='/' element={<CheckIn/>}/>
+            <Route path='/allset' element={<AllSet/>}/>
+          </Routes>
+        </Router>
       </div>
-
-      <br/>
-
-      <CheckIn/>
-      <AllSet/>
     </>
   );
 }

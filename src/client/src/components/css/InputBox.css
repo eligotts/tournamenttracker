@@ -1,0 +1,41 @@
+.boxAndText {
+  font-size: 15px;
+  margin: 0px;
+  font-weight: bold;
+  color: #656565;
+}
+
+.boxAndText p {
+  margin-bottom: 8px;
+}
+
+.box {
+  width: 74vw;
+  background-color: #fff;
+  height: 40px;
+  margin-top: 0px;
+  border: 2px;
+  border-radius: 5px;
+  filter: drop-shadow(0rem .1rem .15rem #8D8D8D);
+  padding-left: 3rem;
+}
+
+.input {
+  color: #656565;
+  border: none;
+  font-weight: normal;
+  appearance: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  outline: none;
+}
+
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.input::placeholder {
+  color: #8D8D8D;
+  transition: color 0.2s ease;
+}

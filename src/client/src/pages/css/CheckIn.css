@@ -1,0 +1,42 @@
+.arrow {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.art {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}
+
+.body {
+  margin-top: 15vh;
+  margin-left: 5vw;
+}
+
+.titles {
+  position: relative;
+}
+
+.titles h1 {
+  font-size: 42px;
+  margin-bottom: 0px;
+}
+
+.titles p {
+  color: #8E8E8E;
+  margin-top: 0px;
+  font-size: 16px;
+}
+
+.continueButton {
+  position: absolute;
+  margin-top: 40px;
+  right: 32px;
+}
+
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
