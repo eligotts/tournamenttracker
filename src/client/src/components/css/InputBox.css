@@ -1,4 +1,4 @@
-.boxAndText {
+Up.boxAndText {
   font-size: 15px;
   margin: 0px;
   font-weight: bold;
@@ -26,7 +26,7 @@
   font-weight: normal;
   appearance: none;
   padding-top: 8px;
-  padding-bottom: 8px
+  padding-bottom: 8px;
   outline: none;
 }
 
