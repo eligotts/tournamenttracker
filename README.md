@@ -76,8 +76,3 @@ Project Link: [https://github.com/al3xisrobles/TourneyTracker](https://github.co
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
 
-
-
-
-
-##TEST CHANGE TEST CHANGE
