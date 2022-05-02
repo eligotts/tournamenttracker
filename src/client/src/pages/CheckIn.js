@@ -5,6 +5,8 @@ import './css/CheckIn.css'
 import Art from '../images/checkInArt.png'
 import { InputBox } from '../components/InputBox'
 
+// Worked!
+
 function CheckIn() {
 
   // Determines if button will be shown depending on screen size
