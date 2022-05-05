@@ -9,8 +9,8 @@ function App() {
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("/members").then(
-      res => res.json()
+    fetch("/").then(
+      res => res
     ).then(
       data => {
         setData(data)
@@ -22,7 +22,7 @@ function App() {
   return (
     <>
 
-      {/* CODE TO DISPLAY BACKEND
+      {/*DISPLAY BACKEND*/}
       <div>
         {(typeof data.members === 'undefined') ? (
           <p>Loading...</p>
@@ -31,7 +31,7 @@ function App() {
             <p key={i}>{member}</p>
           ))
         )}
-      </div> */}
+      </div>
 
       <div className="font-link">
         <Router>
