@@ -40,7 +40,7 @@ sh = client.open("SNU Volleyball")
 
 #gsheet.insert_row(["Ava"], 3)
 
-sh.add_worksheet(title = "test", rows = 100, cols = 20)
-#print(gsheet.get_all_records())
+#sh.add_worksheet(title = "test", rows = 100, cols = 20)
+print(gsheet.get_all_records())
 #cells = gsheet.findall("aa")
 #print(cells)
