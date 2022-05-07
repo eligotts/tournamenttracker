@@ -25,7 +25,7 @@ function App() {
       {/*DISPLAY BACKEND*/}
       <div>
         {(typeof data.members === 'undefined') ? (
-          <p>Loading...</p>
+          <p></p>//<p>Loading...</p>
         ) : (
           data.members.map((member, i) => (
             <p key={i}>{member}</p>

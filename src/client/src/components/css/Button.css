@@ -10,6 +10,11 @@
   cursor: pointer;
 }
 
+.btn:hover {
+  filter: drop-shadow(0rem .08rem .08rem #8D8D8D);
+  transition: filter 0.3s ease;
+}
+
 .btn--primary {
   background-color: var(--primary);
   color: #fff;

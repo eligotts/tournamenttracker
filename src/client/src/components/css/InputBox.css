@@ -1,5 +1,5 @@
-Up.boxAndText {
-  font-size: 15px;
+.boxAndText {
+  font-size: 14px;
   margin: 0px;
   font-weight: bold;
   color: #656565;
@@ -10,26 +10,39 @@ Up.boxAndText {
 }
 
 .box {
-  width: 74vw;
+  width: 76vw;
   background-color: #fff;
-  height: 40px;
-  margin-top: 0px;
+  height: 30px;
   border: 2px;
   border-radius: 5px;
   filter: drop-shadow(0rem .1rem .15rem #8D8D8D);
-  padding-left: 3rem;
+  position: relative;
+}
+
+.avatar {
+  float: left;
 }
 
 .input {
   color: #656565;
   border: none;
   font-weight: normal;
-  appearance: none;
+  padding-left: 3rem;
+  width: 70vw;
+  height:inherit;
+  display: flex;
   padding-top: 8px;
   padding-bottom: 8px;
   outline: none;
+  /* position: absolute; */
 }
 
+/* Gets rid of arrows for number box */
+.input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .input:focus::placeholder {
   color: transparent;

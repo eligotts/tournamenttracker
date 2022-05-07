@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, jsonify
 import gspread
 from google.oauth2 import service_account
 
 SCOPES = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-SERVICE_ACCOUNT_FILE = '/Users/eligottlieb/Documents/snu_website/flask_server/credentials.json'
+SERVICE_ACCOUNT_FILE = './credentials.json'
 
 credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
@@ -17,7 +17,7 @@ app = Flask(__name__)
 # Members API Route
 @app.route("/")
 def members():
-    return gsheet.get_all_records()
+    return jsonify(gsheet.get_all_records())
 
 if __name__ == "__main__":
     app.run(debug=True)
