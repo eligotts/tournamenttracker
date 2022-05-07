@@ -12,7 +12,7 @@ export const InputBox = ({
       <div className="boxAndText">
         <p>{title}</p>
         <div className="box">
-          <form>
+          <form method = "POST" action = "/allset">
               <input className="input" type={type} placeholder={children}/>
           </form>
         </div>
