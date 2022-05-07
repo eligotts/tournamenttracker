@@ -5,7 +5,9 @@ import './css/CheckIn.css'
 import Art from '../images/checkInArt.png'
 import { InputBox } from '../components/InputBox'
 
-// Worked!
+// Import avatars for check-in boxes
+import PersonAvatar from '../images/personAvatar.png'
+import VenmoAvatar from '../images/venmoAvatar.png'
 
 function CheckIn() {
 
@@ -35,10 +37,10 @@ function CheckIn() {
 
         {/* Input Boxes */}
         <div className="inputs">
-          <InputBox type="text" title="TEAM NAME">Enter a name to call your team</InputBox>
-          <InputBox type="text" title="TEAM CAPTAIN">Enter your name</InputBox>
-          <InputBox type="number" title="# OF TEAM MEMBERS (INCLUDING YOU)">Enter a number</InputBox>
-          <InputBox type="text" title="YOUR VENMO">Enter your venmo username</InputBox>
+          <InputBox type="text" avatar={PersonAvatar} title="TEAM NAME">Enter a name to call your team</InputBox>
+          <InputBox type="text" avatar={PersonAvatar} title="TEAM CAPTAIN">Enter your name</InputBox>
+          <InputBox type="number" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)">Enter a number</InputBox>
+          <InputBox type="text" avatar={VenmoAvatar} title="YOUR VENMO">Enter your venmo username</InputBox>
         </div>
 
         {/* Continue Button */}
