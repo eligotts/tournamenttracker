@@ -27,6 +27,26 @@ function CheckIn() {
   // Whenever screen is resized, showButton() is called
   //window.addEventListener('resize', showButton);
 
+  //Might have to do a different one for each input box
+  //const [addTeamName, setAddTeamName] = useState('')
+  //const handleTNChange = (inputValue) => {
+  //  setAddTeamName(inputValue)
+  //}
+
+  const [addTodo, setAddTodo] = useState('')
+  const handleFormChange = (inputValue) => {
+    setAddTodo(inputValue)
+  }
+
+  const handleFormSubmit = () => {
+    fetch('/allset', {
+      method: 'POST',
+      body: JSON.stringify({
+        content:addTodo
+      })
+    })
+  }
+
   return (
     // <motion.div
     //   initial={{opacity: 0}}
@@ -45,10 +65,10 @@ function CheckIn() {
 
         {/* Input Boxes */}
         <div className="inputs">
-          <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME">Enter a name to call your team</InputBox>
-          <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN">Enter your name</InputBox>
-          <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)">Enter a number</InputBox>
-          <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO">Enter your venmo username</InputBox>
+          <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter a name to call your team</InputBox>
+          <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter your name</InputBox>
+          <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter a number</InputBox>
+          <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter your venmo username</InputBox>
         </div>
 
         {/* Continue Button */}

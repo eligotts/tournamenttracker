@@ -54,15 +54,15 @@ function AllSet () {
       </header>
 
       {/*DISPLAY BACKEND*/}
-      {/* <div>
-        {(typeof data.update_sheet === 'undefined') ? (
+      <div>
+        {(typeof data.members === 'undefined') ? (
           <p>Loading...</p>
         ) : (
           data.members.map((member, i) => (
             <p key={i}>{member}</p>
           ))
         )}
-      </div> */}
+      </div>
 
     {/* </motion.div> */}
     </>
