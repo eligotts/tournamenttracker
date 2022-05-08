@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 25vh;
+}
+
+.text {
+  text-align: center;
+  margin: auto;
+}
+
+.text p {
+  margin-bottom: 0px;
+}
+
+.dateText {
+  font-style: italic;
+  background-color: #a89b75;
+  color: #fff;
+  display: flex;
+  height: 50px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  width: 130px;
+}
+
+.snu-logo {
+  height: 50px;
+}
+
+.snu-div {
+  padding-top: 5vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .snu-logo {
+    animation: snu-logo-spin infinite 8s linear;
+    /* animation: 3s ease-in 1s infinite reverse both running slidein; */
+  }
+}
+
+@keyframes snu-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.subtext {
+  padding-top: 15vh;
+  color: #8d8d8d;
+  font-size: small;
+}

@@ -10,31 +10,33 @@
 }
 
 .box {
-  width: 76vw;
+  width: 85vw;
   background-color: #fff;
-  height: 30px;
+  height: 45px;
   border: 2px;
-  border-radius: 5px;
+  border-radius: 8px;
   filter: drop-shadow(0rem .1rem .15rem #8D8D8D);
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .avatar {
   float: left;
+  padding-left: 2vw;
 }
 
-.input {
+.inp {
   color: #656565;
   border: none;
   font-weight: normal;
-  padding-left: 3rem;
-  width: 70vw;
   height:inherit;
   display: flex;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  width: 75vw;
+  height: 35px;
   outline: none;
-  /* position: absolute; */
+  padding-left: 2vw;
 }
 
 /* Gets rid of arrows for number box */

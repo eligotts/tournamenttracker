@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+from re import template
+from flask import Flask, jsonify, request, render_template
 import gspread
 from google.oauth2 import service_account
 
@@ -14,9 +15,24 @@ sh = client.open("SNU Volleyball")
 
 app = Flask(__name__)
 
-# Members API Route
-@app.route("/")
-def members():
+# API Route
+@app.route("/", methods=['POST'])
+def home():
+    return render_template('index.html')
+
+@app.route("/allset")
+def update_sheet():
+
+    teamName = request.values.get("TeamName")
+    captainName = request.values.get("CaptainName")
+    membersNum = request.values.get("MembersNum")
+    venmo = request.values.get("Venmo")
+
+    row = [teamName, captainName, membersNum, venmo]
+    gsheet.insert_row(row, 3)
+
+    print(row)
+
     return jsonify(gsheet.get_all_records())
 
 if __name__ == "__main__":

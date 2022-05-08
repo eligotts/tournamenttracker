@@ -1,46 +1,25 @@
-import React, { useState, useEffect} from 'react'
-import { BrowserRouter as Router, Routes, Route } from  'react-router-dom'
-import CheckIn from './pages/CheckIn';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from  'react-router-dom'
+import Register from './pages/Register';
 import AllSet from './pages/AllSet';
+import { AnimatePresence } from 'framer-motion';
 import './App.css'
 
 function App() {
 
-  const [data, setData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/").then(
-      res => res
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-        }
-    )
-  }, [])
-
   return (
     <>
-
-      {/*DISPLAY BACKEND*/}
-      <div>
-        {(typeof data.members === 'undefined') ? (
-          <p></p>//<p>Loading...</p>
-        ) : (
-          data.members.map((member, i) => (
-            <p key={i}>{member}</p>
-          ))
-        )}
-      </div>
-
-      <div className="font-link">
-        <Router>
-          <Routes>
-            <Route path='/' element={<CheckIn/>}/>
-            <Route path='/allset' element={<AllSet/>}/>
-          </Routes>
-        </Router>
-      </div>
+        {/* <AnimatePresence> */}
+          {/* <Router location={useLocation()} key={useLocation().pathname}> */}
+          <Router>
+            <div className="font-link">
+              <Routes>
+                <Route path='/' element={<Register/>}/>
+                <Route path='/allset' element={<AllSet/>}/>
+              </Routes>
+            </div>
+          </Router>
+        {/* </AnimatePresence> */}
     </>
   );
 }

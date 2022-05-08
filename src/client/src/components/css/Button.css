@@ -1,5 +1,5 @@
 :root {
-  --primary: #F2A250;
+  --primary: #a89b75;
 }
 
 .btn {
@@ -16,9 +16,10 @@
 }
 
 .btn--primary {
+  background:linear-gradient(90deg, #F6CC50,transparent);
   background-color: var(--primary);
   color: #fff;
-  border: 1px solid var(--primary);
+  filter: drop-shadow(0rem .1rem .1rem #8D8D8D);
 }
 
 .btn--outline {
