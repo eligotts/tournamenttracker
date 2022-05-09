@@ -31,6 +31,11 @@ def update_sheet():
 
     #row = [teamName, captainName, membersNum, venmo]
     gsheet.insert_row([request_data['content']], 3)
+    
+    teamName = request.form["TeamName"]
+    captainName = request.form["CaptainName"]
+    membersNum = request.form["MembersNum"]
+    venmo = request.form["Venmo"]
 
     #print(row)
     #print(request_data['content'], file=sys.stdout)
