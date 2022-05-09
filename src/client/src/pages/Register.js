@@ -28,24 +28,39 @@ function CheckIn() {
   //window.addEventListener('resize', showButton);
 
   //Might have to do a different one for each input box
-  //const [addTeamName, setAddTeamName] = useState('')
-  //const handleTNChange = (inputValue) => {
-  //  setAddTeamName(inputValue)
-  //}
+  const [addTeamName, setAddTeamName] = useState('')
+  const handleTNChange = (inputValue) => {
+    setAddTeamName(inputValue)
+  }
 
-  const [addTodo, setAddTodo] = useState('')
-  const handleFormChange = (inputValue) => {
-    setAddTodo(inputValue)
+  const [addTeamCap, setAddTeamCap] = useState('')
+  const handleTCChange = (inputValue) => {
+    setAddTeamCap(inputValue)
+  }
+
+  const [addMembersNum, setAddMembersNum] = useState('')
+  const handleMNChange = (inputValue) => {
+    setAddMembersNum(inputValue)
+  }
+
+  const [addVenmo, setAddVenmo] = useState('')
+  const handleVenmoChange = (inputValue) => {
+    setAddVenmo(inputValue)
   }
 
   const handleFormSubmit = () => {
     fetch('/allset', {
       method: 'POST',
       body: JSON.stringify({
-        content:addTodo
-      })
-    })
+        content:addTeamName
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(response => response.json())
+      .then(message => console.log(message))
   }
+
 
   return (
     // <motion.div
@@ -65,10 +80,10 @@ function CheckIn() {
 
         {/* Input Boxes */}
         <div className="inputs">
-          <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter a name to call your team</InputBox>
-          <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter your name</InputBox>
-          <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter a number</InputBox>
-          <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}>Enter your venmo username</InputBox>
+          <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTeamName} onFormChange={handleTNChange} onFormSubmit={handleFormSubmit}>Enter a name to call your team</InputBox>
+          <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN" userInput={addTeamCap} onFormChange={handleTCChange} onFormSubmit={handleFormSubmit}>Enter your name</InputBox>
+          <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)" userInput={addMembersNum} onFormChange={handleMNChange} onFormSubmit={handleFormSubmit}>Enter a number</InputBox>
+          <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addVenmo} onFormChange={handleVenmoChange} onFormSubmit={handleFormSubmit}>Enter your venmo username</InputBox>
         </div>
 
         {/* Continue Button */}
