@@ -24,25 +24,10 @@ def home():
 @app.route("/allset", methods=['POST'])
 def update_sheet():
 
-    #teamName = request.values.get("TeamName")
-    #captainName = request.values.get("CaptainName")
-    #membersNum = request.values.get("MembersNum")
-    #venmo = request.values.get("Venmo")
-
-    #row = [teamName, captainName, membersNum, venmo]
     req = json.loads(request.data)
 
     row = [req["addTeamName"], req["addTeamCap"], req["addMembersNum"], req["addVenmo"]]
-
     gsheet.insert_row(row, 2)
-
-    # teamName = request.form["TeamName"]
-    # captainName = request.form["CaptainName"]
-    # membersNum = request.form["MembersNum"]
-    # venmo = request.form["Venmo"]
-
-    #print(row)
-    #print(request_data['content'], file=sys.stdout)
 
     return
 
