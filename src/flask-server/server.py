@@ -23,10 +23,10 @@ def home():
 @app.route("/allset")
 def update_sheet():
 
-    teamName = request.values.get("TeamName")
-    captainName = request.values.get("CaptainName")
-    membersNum = request.values.get("MembersNum")
-    venmo = request.values.get("Venmo")
+    teamName = request.form["TeamName"]
+    captainName = request.form["CaptainName"]
+    membersNum = request.form["MembersNum"]
+    venmo = request.form["Venmo"]
 
     row = [teamName, captainName, membersNum, venmo]
     gsheet.insert_row(row, 3)

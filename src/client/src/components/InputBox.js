@@ -17,7 +17,7 @@ export const InputBox = ({
         <div className="box">
           <img className="avatar" src={avatar} alt="Icon" width="20px" height="20px"/>
           <form method = "POST" action = "/allset">
-              <input className="inp" type={type} name={name} autocomplete="off" placeholder={children}/>
+              <input className="inp" type={type} name={name} autoComplete="off" placeholder={children}/>
           </form>
         </div>
       </div>

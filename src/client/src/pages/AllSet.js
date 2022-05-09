@@ -33,7 +33,7 @@ function AllSet () {
 
       <header className="header">
 
-        <Checkmark color='#a89b75'/>
+        <Checkmark className="check" color='#a89b75'/>
 
         <div className="text">
           <h1>You're all set, {get_name()}.</h1>
@@ -45,10 +45,6 @@ function AllSet () {
 
         <div className="snu-div">
           <img src={SigmaNu} className="snu-logo" alt="logo" />
-        </div>
-
-        <div className="subtext">
-            <p>Questions? Text Alexis Robles at 781-666-9422</p>
         </div>
 
       </header>

@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import AllSet from './pages/AllSet';
 import { AnimatePresence } from 'framer-motion';
 import './App.css'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
               </Routes>
             </div>
           </Router>
+          <Footer/>
         {/* </AnimatePresence> */}
     </>
   );
