@@ -72,7 +72,7 @@ function CheckIn() {
         teamName: addTeamName,
         teamCap: addTeamCap,
         membersNum: addMembersNum,
-        addVenmo: addVenmo
+        venmo: addVenmo
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
