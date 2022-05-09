@@ -17,30 +17,34 @@ sh = client.open("SNU Volleyball")
 app = Flask(__name__)
 
 # API Route
-@app.route("/", methods=['GET'])
+@app.route("/temp", methods=['GET'])
 def home():
     return {"members": ["Member1", "Member2", "Member3"]}
 
 @app.route("/allset", methods=['POST'])
 def update_sheet():
-    request_data = json.loads(request.data)
+
     #teamName = request.values.get("TeamName")
     #captainName = request.values.get("CaptainName")
     #membersNum = request.values.get("MembersNum")
     #venmo = request.values.get("Venmo")
 
     #row = [teamName, captainName, membersNum, venmo]
-    gsheet.insert_row([request_data['content']], 3)
-    
-    teamName = request.form["TeamName"]
-    captainName = request.form["CaptainName"]
-    membersNum = request.form["MembersNum"]
-    venmo = request.form["Venmo"]
+    req = json.loads(request.data)
+
+    row = [req["addTeamName"], req["addTeamCap"], req["addMembersNum"], req["addVenmo"]]
+
+    gsheet.insert_row(row, 2)
+
+    # teamName = request.form["TeamName"]
+    # captainName = request.form["CaptainName"]
+    # membersNum = request.form["MembersNum"]
+    # venmo = request.form["Venmo"]
 
     #print(row)
     #print(request_data['content'], file=sys.stdout)
 
-    return {'201': 'created successfully'}
+    return
 
 if __name__ == "__main__":
     app.run(debug=True)

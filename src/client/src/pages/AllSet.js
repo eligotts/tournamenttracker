@@ -8,18 +8,19 @@ function AllSet () {
 
   const [data, setData] = useState([{}])
 
-  useEffect(() => {
-    fetch("/").then(
-      res => res
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-        }
-    )
-  }, [])
+  // Fetch backend
+  // useEffect(() => {
+  //   fetch("/allset").then(
+  //     res => res
+  //   ).then(
+  //     data => {
+  //       setData(data)
+  //       console.log(data)
+  //     }
+  //   )
+  // }, [])
 
-  // Get
+  // Get Name of registrant
   function get_name() {
     return "Alexis"
   }
@@ -49,16 +50,16 @@ function AllSet () {
 
       </header>
 
-      {/*DISPLAY BACKEND*/}
-      <div>
-        {(typeof data.members === 'undefined') ? (
+      {/* DISPLAY BACKEND */}
+      {/* <div>
+        {(typeof data.arr === 'undefined') ? (
           <p>Loading...</p>
         ) : (
-          data.members.map((member, i) => (
+          data.arr.map((member, i) => (
             <p key={i}>{member}</p>
           ))
         )}
-      </div>
+      </div> */}
 
     {/* </motion.div> */}
     </>

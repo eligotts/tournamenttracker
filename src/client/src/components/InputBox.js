@@ -8,17 +8,10 @@ export const InputBox = ({
   title,
   name,
   userInput,
-  onFormChange,
-  onFormSubmit
+  onFormChange
 }) => {
   const handleChange = (event) => {
     onFormChange(event.target.value)
-  }
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    onFormSubmit()
   }
 
   return (
@@ -28,7 +21,7 @@ export const InputBox = ({
         <p>{title}</p>
         <div className="box">
           <img className="avatar" src={avatar} alt="Icon" width="20px" height="20px"/>
-          <form onSubmit={handleSubmit}>
+          <form>
               <input className="inp" required value={userInput} onChange={handleChange} type={type} name={name} autoComplete="off" placeholder={children}/>
           </form>
         </div>

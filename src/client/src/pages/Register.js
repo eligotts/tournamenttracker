@@ -63,19 +63,25 @@ function CheckIn() {
     setAddVenmo(inputValue)
   }
 
+  const postArr = [addTeamName, addTeamCap, addMembersNum, addVenmo]
+
   const handleFormSubmit = () => {
     fetch('/allset', {
       method: 'POST',
       body: JSON.stringify({
-        content:addTeamName
+        teamName: addTeamName,
+        teamCap: addTeamCap,
+        membersNum: addMembersNum,
+        addVenmo: addVenmo
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
     }).then(response => response.json())
       .then(message => console.log(message))
-  }
 
+    console.log('Forms Submitted')
+  }
 
   return (
     // <motion.div
@@ -119,7 +125,7 @@ function CheckIn() {
                   </MDBModalBody>
 
                   <MDBModalFooter>
-                    <MDBBtn color='amber' onClick={toggleShow}>
+                    <MDBBtn className="close-btn" color='amber' onClick={toggleShow}>
                       Close
                     </MDBBtn>
                   </MDBModalFooter>
@@ -136,16 +142,16 @@ function CheckIn() {
 
           {/* Input Boxes */}
           <div className="inputs">
-            <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTeamName} onFormChange={handleTNChange} onFormSubmit={handleFormSubmit}>Enter a name to call your team</InputBox>
-            <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN" userInput={addTeamCap} onFormChange={handleTCChange} onFormSubmit={handleFormSubmit}>Enter your name</InputBox>
-            <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)" userInput={addMembersNum} onFormChange={handleMNChange} onFormSubmit={handleFormSubmit}>Enter a number</InputBox>
-            <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addVenmo} onFormChange={handleVenmoChange} onFormSubmit={handleFormSubmit}>Enter your venmo username</InputBox>
+            <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTeamName} onFormChange={handleTNChange} >Enter or create your team name</InputBox>
+            <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM CAPTAIN" userInput={addTeamCap} onFormChange={handleTCChange} >Enter your captain's name</InputBox>
+            <InputBox type="number" name="MembersNum" avatar={PersonAvatar} title="# OF TEAM MEMBERS (INCLUDING YOU)" userInput={addMembersNum} onFormChange={handleMNChange}>Enter a number</InputBox>
+            <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addVenmo} onFormChange={handleVenmoChange}> Enter your venmo username</InputBox>
           </div>
 
           {/* Continue Button */}
           <div className="continueButton">
             <Link to='/allset' className = 'btn-continue'>
-              <MDBBtn color="amber">
+              <MDBBtn onClick={handleFormSubmit} color="amber">
                 CONTINUE
                 <img className="arrow" src={forwardArrow} alt="Forward Arrow" width="18px"/>
               </MDBBtn>

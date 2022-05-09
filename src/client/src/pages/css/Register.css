@@ -29,6 +29,11 @@
   max-height: 46px;
 }
 
+.close-btn {
+  max-width: 109px;
+  max-height: 46px;
+}
+
 .modal {
   position: absolute;
 }
