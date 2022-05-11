@@ -64,7 +64,7 @@ function Join() {
     <>
       <div className="titles2">
         <h1>Join a Team</h1>
-        <p>Please enter your information to register</p>
+        <p>Only join a team you have permission to join into</p>
       </div>
 
       <div className="input-section">
