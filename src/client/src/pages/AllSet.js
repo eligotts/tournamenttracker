@@ -5,23 +5,23 @@ import { useLocation } from "react-router-dom"
 import { Checkmark } from 'react-checkmark'
 
 
-export const AllSet = ({
-  name
-}) => {
+function AllSet() { 
 
   const [data, setData] = useState([{}])
 
   // Fetch backend
-  // useEffect(() => {
-  //   fetch("/allset").then(
-  //     res => res
-  //   ).then(
-  //     data => {
-  //       setData(data)
-  //       console.log(data)
-  //     }
-  //   )
-  // }, [])
+  useEffect(() => {
+    fetch("/allset"
+      ).then(
+      (response) => response.json()
+    ).then(
+      data => {
+        setData(data)
+        console.log(data)
+      }
+    )
+  }, [])
+
 
   return (
     // <motion.div
@@ -35,7 +35,7 @@ export const AllSet = ({
         <Checkmark className="check" color='#a89b75'/>
 
         <div className="text">
-          <h1>You're all set, {name}.</h1>
+          <h1>You're all set, {typeof data.members}.</h1>
           <p>Save the date</p>
           <div className="dateText">
             <h2>May 29</h2>
@@ -54,10 +54,10 @@ export const AllSet = ({
 
       {/* DISPLAY BACKEND */}
       {/* <div>
-        {(typeof data.arr === 'undefined') ? (
+        {(typeof data.members === 'undefined') ? (
           <p>Loading...</p>
         ) : (
-          data.arr.map((member, i) => (
+          data.members.map((member, i) => (
             <p key={i}>{member}</p>
           ))
         )}
