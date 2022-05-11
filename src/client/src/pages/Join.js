@@ -61,20 +61,18 @@ function Join() {
     console.log('Forms Submitted')
   }
 
-  const inputTest = [["0","Team 1", "Eli", "Alexis"], ["1","Team 2", "Kendall", "Ava"]]
+  const inputTest = [["0","Team 1", "Eli", "Alexis","G","G","G","G","G","G","G","G"], ["1","Team 2", "Kendall", "Ava"]]
+  
+  const filtered = inputTest.filter(function(value, index, arr){
+    return value.length < 10;
+  })
   //const inputTest = []
 
-  const options = inputTest.map((number) => ({value: number[0] , label: number[1]}))
+  const options = filtered.map((number) => ({value: number[0] , label: number[1]}))
 
   // inputTest.members.map((member, i) => (
   //   optionstest.push({value: {i}, label: {member}})
   // ))
-
-  // for (let i = 0; i < data.length; i++)
-  // {
-  //   optionstest.push({value: {i}, label: {data[i][0]}})
-
-  // }
 
   
   
