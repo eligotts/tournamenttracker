@@ -12,6 +12,22 @@ import Select from 'react-select'
 
 function Join() {
 
+  const [data, setData] = useState([{}])
+
+  // // Fetch backend
+  // useEffect(() => {
+  //   fetch("/join").then(
+  //     res => res
+  //   ).then(
+  //     data => {
+  //       setData(data)
+  //       console.log(data)
+  //     }
+  //   )
+  // }, [])
+
+  
+
   const [addName, setAddName] = useState('')
   const handleNameChange = (inputValue) => {
     setAddName(inputValue)
@@ -45,20 +61,39 @@ function Join() {
     console.log('Forms Submitted')
   }
 
-  const options = [
+  const inputTest = [["0","Team 1", "Eli", "Alexis","G","G","G","G","G","G","G","G"], ["1","Team 2", "Kendall", "Ava"]]
+  
+  const filtered = inputTest.filter(function(value, index, arr){
+    return value.length < 10;
+  })
+  //const inputTest = []
 
-    // ELI: Make sure the values start from 0 so you can
-    //      easily index options with options[addTeamName.value]
+  const options = filtered.map((number) => ({value: number[0] , label: number[1]}))
 
-    { value: '0', label: 'Team Bitch' },
-    { value: '1', label: 'Synergy' },
-    { value: '2', label: 'Shahab\'s Hair' },
-    { value: '4', label: 'dsasd\'s Hair' },
-    { value: '4', label: 'Shahaboidsjsadojdsa' },
-    { value: '5', label: 'aOIJDOASDJIAD' },
-    { value: '6', label: 'cmon' },
-    { value: '7', label: 'Shoot' },
-  ]
+  // inputTest.members.map((member, i) => (
+  //   optionstest.push({value: {i}, label: {member}})
+  // ))
+
+  
+  
+  
+  
+  // const options = [
+
+  //   // ELI: Make sure the values start from 0 so you can
+  //   //      easily index options with options[addTeamName.value]
+
+  //   ///change options so it gets the team names that are in the sheet in a loop
+
+  //   { value: "0", label: 'Team Bitch' },
+  //   { value: '1', label: 'Synergy' },
+  //   { value: '2', label: 'Shahab\'s Hair' },
+  //   { value: '4', label: 'dsasd\'s Hair' },
+  //   { value: '4', label: 'Shahaboidsjsadojdsa' },
+  //   { value: '5', label: 'aOIJDOASDJIAD' },
+  //   { value: '6', label: 'cmon' },
+  //   { value: '7', label: 'Shoot' },
+  // ]
 
   return (
     <>
@@ -67,6 +102,16 @@ function Join() {
         <p>Only join a team you have permission to join into</p>
       </div>
 
+      {options.length == 0 &&
+      <div className="team-subheader">
+        <p>Sorry, no teams to join.</p>
+        <Link to='/register' >
+          <MDBBtn color="red" className = "btn-create">CREATE TEAM</MDBBtn>
+        </Link>
+      </div>}
+
+
+      {options.length > 0 &&
       <div className="input-section">
         <div className="input-boxes">
           <InputBox type="text" name="JoinTeamName" avatar={PersonAvatar} title="FULL NAME" userInput={addName} onFormChange={handleNameChange}>Enter your full name</InputBox>
@@ -80,9 +125,11 @@ function Join() {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
+
 
       {/* Continue Button */}
+      {options.length > 0 &&
       <div className="join-team-btn-div">
         <Link to={{
           pathname: "/allset",
@@ -93,16 +140,20 @@ function Join() {
             <img className="arrow" src={forwardArrow} alt="Forward Arrow" width="18px"/>
           </MDBBtn>
         </Link>
-      </div>
+      </div>}
 
+      {options.length > 0 &&
       <div className="team-subheader">
         <p>See registered teams below.</p>
-      </div>
-
+      </div>}
+    
+      {/* make this a loop */}
       <div className="team-boxes">
-        <TeamBox teamName="Team Bitch" headColor="blue" members={["Eli", "Alexis"]}/>
+        {inputTest.map((number, i) => (
+          <TeamBox key={i} teamName={number[1]} headColor="blue" members={number.slice(2)}/>))}
+        {/* <TeamBox teamName="Team Bitch" headColor="blue" members={["Eli", "Alexis"]}/>
         <TeamBox teamName="Synergy" headColor="red" members={["Ava", "Orange", "Nah"]}/>
-        <TeamBox teamName="Shahab's Hair" headColor="green" members={["Cmon"]}/>
+        <TeamBox teamName="Shahab's Hair" headColor="green" members={["Cmon"]}/> */}
       </div>
     </>
   )

@@ -31,5 +31,15 @@ def update_sheet():
 
     return
 
+def get_teams():
+    teams = gsheet.get_all_values()
+    if teams:
+        teams.pop(0)
+    for ii in range(len(teams)):
+        teams[ii][0]=str(ii)
+        teams[ii] = list(filter(('').__ne__,teams[ii]))
+
+    return teams
+
 if __name__ == "__main__":
     app.run(debug=True)
