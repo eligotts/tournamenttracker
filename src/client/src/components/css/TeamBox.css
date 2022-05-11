@@ -1,0 +1,23 @@
+.team-box {
+  margin: auto;
+}
+
+.team-subheader {
+  text-align: center;
+  color: #676767;
+  margin-bottom: 3vh;
+}
+
+.white-font {
+  color: #fff;
+}
+
+.team-name p,
+.member-name {
+  margin-left: 5vw;
+}
+
+.member-name {
+  display: flex;
+  vertical-align: middle;
+}

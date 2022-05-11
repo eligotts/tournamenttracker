@@ -10,7 +10,7 @@
 }
 
 .body {
-  margin-top: 15vh;
+  margin-top: 18vh;
   margin-left: 5vw;
 }
 
@@ -21,7 +21,7 @@
 .titles h1 {
   font-size: 42px;
   margin-bottom: 0px;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .btn {
@@ -38,6 +38,10 @@
   position: absolute;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .titles p {
   color: #8E8E8E;
   margin-top: 0px;
@@ -45,9 +49,11 @@
 }
 
 .continueButton {
-  position: absolute;
+  display: flex;
+  justify-content: right;
   margin-top: 40px;
-  right: 32px;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
 }
 
 .subheader {

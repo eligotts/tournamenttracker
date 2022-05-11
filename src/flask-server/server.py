@@ -26,7 +26,7 @@ def update_sheet():
 
     req = json.loads(request.data)
 
-    row = [req["teamName"], req["teamCap"], req["membersNum"], req["venmo"]]
+    row = [req["venmo"], req["teamName"], req["name"]]
     gsheet.insert_row(row, 2)
 
     return

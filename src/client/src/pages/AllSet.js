@@ -1,10 +1,13 @@
 import React, { useState, useEffect} from 'react';
 import './css/AllSet.css';
 import SigmaNu from '../images/sigmaNu.png'
+import { useLocation } from "react-router-dom"
 import { Checkmark } from 'react-checkmark'
-import { motion } from 'framer-motion'
 
-function AllSet () {
+
+export const AllSet = ({
+  name
+}) => {
 
   const [data, setData] = useState([{}])
 
@@ -20,11 +23,6 @@ function AllSet () {
   //   )
   // }, [])
 
-  // Get Name of registrant
-  function get_name() {
-    return "Alexis"
-  }
-
   return (
     // <motion.div
     //   initial={{ opacity: 0 }}
@@ -37,10 +35,14 @@ function AllSet () {
         <Checkmark className="check" color='#a89b75'/>
 
         <div className="text">
-          <h1>You're all set, {get_name()}.</h1>
+          <h1>You're all set, {name}.</h1>
           <p>Save the date</p>
           <div className="dateText">
             <h2>May 29</h2>
+          </div>
+
+          <div className="subtext2">
+            <p>If you created a team, your friends can not join your team from the home page.</p>
           </div>
         </div>
 

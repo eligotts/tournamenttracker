@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  width: 140px;
+  width: 150px;
 }
 
 .dateText h2 {
@@ -32,8 +32,17 @@
   height: 50px;
 }
 
+.subtext2 {
+  display: flex;
+  margin: auto;
+  width: 60vw;
+  padding-top: 3vh;
+  color: #646464;
+}
+
 .snu-div {
   padding-top: 5vh;
+  margin-bottom: 10vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {

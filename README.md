@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 
-  <img src="src/SigmaNu.png" alt="Logo" width="80" height="80">
+  <img src="src/client/src/images/SigmaNu.png" alt="Logo" width="80" height="80">
 
   <h1 align="center">Sigma Nu's Tournament Tracker</h1>
 

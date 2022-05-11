@@ -1,0 +1,69 @@
+.btn-join {
+  width: 150px;
+}
+
+.btns {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title h1 {
+  font-weight: bold;
+}
+
+.title h2 {
+  font-style: italic;
+  background: linear-gradient(90deg, rgba(255, 20, 20,1) 0%, rgba(253,187,45,1) 80%);
+  background-clip: #000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.snu-logo {
+  height: 50px;
+}
+
+.snu-div2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 22vh;
+  margin-bottom: 5vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .snu-logo {
+    animation: snu-logo-spin infinite 8s linear;
+    /* animation: 3s ease-in 1s infinite reverse both running slidein; */
+  }
+}
+
+@keyframes snu-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.redbull {
+  margin-top: 2vh;
+  color: #8d8d8d;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+}
+
+.st-jude {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12vh;
+  margin-top: 5vh;
+}
