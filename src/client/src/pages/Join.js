@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './css/Join.css'
 import { TeamBox } from '../components/TeamBox'
 import { DropdownButton, Dropdown }  from 'react-bootstrap';
@@ -15,18 +15,16 @@ function Join() {
   const [data, setData] = useState([{}])
 
   // // Fetch backend
-  // useEffect(() => {
-  //   fetch("/join").then(
-  //     res => res
-  //   ).then(
-  //     data => {
-  //       setData(data)
-  //       console.log(data)
-  //     }
-  //   )
-  // }, [])
-
-  
+  useEffect(() => {
+    fetch("/join").then(
+      res => res.json()
+    ).then(
+      data => {
+        setData(data)
+        console.log(data)
+      }
+    )
+  }, [])
 
   const [addName, setAddName] = useState('')
   const handleNameChange = (inputValue) => {
@@ -39,18 +37,12 @@ function Join() {
     console.log(inputValue)
   }
 
-  const [addVenmo, setAddVenmo] = useState('')
-  const handleVenmoChange = (inputValue) => {
-    setAddVenmo(inputValue)
-  }
-
   const handleSubmit = () => {
     fetch('/allset', {
       method: 'POST',
       body: JSON.stringify({
         name: addName,
-        teamName: options[addTeamName.value].label,
-        venmo: addVenmo
+        teamName: options[addTeamName.value].label
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -61,39 +53,26 @@ function Join() {
     console.log('Forms Submitted')
   }
 
-  const inputTest = [["0","Team 1", "Eli", "Alexis","G","G","G","G","G","G","G","G"], ["1","Team 2", "Kendall", "Ava"]]
-  
-  const filtered = inputTest.filter(function(value, index, arr){
-    return value.length < 10;
+  const filtered = data.filter(function(value, index, arr) {
+    return value.length < 11;
   })
-  //const inputTest = []
 
+  const colors = ["blue", "indigo", "purple", "pink", "red", "green", "teal", "cyan", "blue", "indigo", "purple", "pink", "red", "green", "teal", "cyan"];
+
+  //const inputTest = []
   const options = filtered.map((number) => ({value: number[0] , label: number[1]}))
 
   // inputTest.members.map((member, i) => (
   //   optionstest.push({value: {i}, label: {member}})
   // ))
-
-  
-  
-  
-  
-  // const options = [
-
-  //   // ELI: Make sure the values start from 0 so you can
-  //   //      easily index options with options[addTeamName.value]
-
-  //   ///change options so it gets the team names that are in the sheet in a loop
-
-  //   { value: "0", label: 'Team Bitch' },
-  //   { value: '1', label: 'Synergy' },
-  //   { value: '2', label: 'Shahab\'s Hair' },
-  //   { value: '4', label: 'dsasd\'s Hair' },
-  //   { value: '4', label: 'Shahaboidsjsadojdsa' },
-  //   { value: '5', label: 'aOIJDOASDJIAD' },
-  //   { value: '6', label: 'cmon' },
-  //   { value: '7', label: 'Shoot' },
-  // ]
+  const realData = [];
+  for(let i = 0; i<data.length;i++) {
+    const temp = []
+    for (let j=0; j<data[i].length;j++) {
+      temp.push([data[i][j]])
+    }
+    realData.push(temp)
+  }
 
   return (
     <>
@@ -102,20 +81,21 @@ function Join() {
         <p>Only join a team you have permission to join into</p>
       </div>
 
-      {options.length == 0 &&
+      {console.log(data)}
+      {console.log(options.length)}
+
+      {options.length === 0 &&
       <div className="team-subheader">
-        <p>Sorry, no teams to join.</p>
-        <Link to='/register' >
+        <p>No teams have been registered yet.</p>
+        <Link to='/register'>
           <MDBBtn color="red" className = "btn-create">CREATE TEAM</MDBBtn>
         </Link>
       </div>}
 
-
       {options.length > 0 &&
       <div className="input-section">
         <div className="input-boxes">
-          <InputBox type="text" name="JoinTeamName" avatar={PersonAvatar} title="FULL NAME" userInput={addName} onFormChange={handleNameChange}>Enter your full name</InputBox>
-          <InputBox type="text" name="JoinVenmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addVenmo} onFormChange={handleVenmoChange}>Enter your venmo username</InputBox>
+          <InputBox type="text" name="JoinTeamName" avatar={PersonAvatar} title="FULL NAME" userInput={addName} onFormChange={handleNameChange}>First Last</InputBox>
         </div>
         <div className="drop-down-section">
           <p className="team-select-title">SELECT YOUR TEAM</p>
@@ -123,10 +103,10 @@ function Join() {
             <div className="select-dropdown">
               <Select onChange={handleTNChange} autosize={true} options={options} />
             </div>
+            <p className="subtext3">Full teams will not appear in the drop down</p>
           </div>
         </div>
       </div>}
-
 
       {/* Continue Button */}
       {options.length > 0 &&
@@ -146,17 +126,14 @@ function Join() {
       <div className="team-subheader">
         <p>See registered teams below.</p>
       </div>}
-    
+
       {/* make this a loop */}
       <div className="team-boxes">
-        {inputTest.map((number, i) => (
-          <TeamBox key={i} teamName={number[1]} headColor="blue" members={number.slice(2)}/>))}
-        {/* <TeamBox teamName="Team Bitch" headColor="blue" members={["Eli", "Alexis"]}/>
-        <TeamBox teamName="Synergy" headColor="red" members={["Ava", "Orange", "Nah"]}/>
-        <TeamBox teamName="Shahab's Hair" headColor="green" members={["Cmon"]}/> */}
+        {realData.map((number, i) => (
+          <TeamBox key={i} teamName={number[1]} headColor={colors[i]} members={number.slice(3)}/>))}
       </div>
     </>
   )
 }
 
-export default Join
+export default Join;

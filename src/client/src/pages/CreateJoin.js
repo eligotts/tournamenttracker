@@ -81,12 +81,14 @@ function CreateJoin() {
           </Link>
         </div>
 
-        <p className="redbull">In Partnership with RedBull</p>
+        <div className="redbull-div">
+          <p className="redbull">In Partnership with </p>
+          <p className="redbull2">RedBull</p>
+        </div>
 
         <div className="st-jude">
           <a target="_blank" rel="noreferrer" href="https://fundraising.stjude.org/site/TR/Challenge/Events?fr_id=138518&pg=entry"><img src={StJude} width="150px" alt="logo" /></a>
         </div>
-
     </>
   )
 }

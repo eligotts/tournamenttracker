@@ -1,26 +1,30 @@
 import React, { useState, useEffect} from 'react';
 import './css/AllSet.css';
 import SigmaNu from '../images/sigmaNu.png'
-import { useLocation } from "react-router-dom"
 import { Checkmark } from 'react-checkmark'
 
 
-function AllSet() { 
+function AllSet() {
 
   const [data, setData] = useState([{}])
 
   // Fetch backend
-  useEffect(() => {
-    fetch("/allset"
-      ).then(
-      (response) => response.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
+  // useEffect(() => {
+  //   fetch("/allset", {
+  //     headers : {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //      }
+  //   }
+  //     ).then(
+  //     (response) => response.json()
+  //   ).then(
+  //     data => {
+  //       setData(data)
+  //       console.log(data)
+  //     }
+  //   )
+  // }, [])
 
 
   return (
@@ -35,14 +39,14 @@ function AllSet() {
         <Checkmark className="check" color='#a89b75'/>
 
         <div className="text">
-          <h1>You're all set, {typeof data.members}.</h1>
+          <h1>You're all set.</h1>
           <p>Save the date</p>
           <div className="dateText">
             <h2>May 29</h2>
           </div>
 
           <div className="subtext2">
-            <p>If you created a team, your friends can not join your team from the home page.</p>
+            <p>If you created a team, your friends can join your team from the home page.</p>
           </div>
         </div>
 

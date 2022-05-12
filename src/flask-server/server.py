@@ -14,22 +14,33 @@ client = gspread.authorize(credentials)
 gsheet = client.open("SNU Volleyball").sheet1
 sh = client.open("SNU Volleyball")
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../build", static_url_path='/')
 
 # API Route
-@app.route("/temp", methods=['GET'])
-def home():
-    return {"members": ["Member1", "Member2", "Member3"]}
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route("/allset", methods=['POST'])
 def update_sheet():
 
     req = json.loads(request.data)
 
-    row = [req["venmo"], req["teamName"], req["name"]]
-    gsheet.insert_row(row, 2)
+    try:
+        row = [req["venmo"], req["teamName"], req["phone"], req["name"]] # Create Team
+        gsheet.insert_row(row, 2)
+    except:
+        cell = gsheet.find(req["teamName"])
+        row = cell.row
+        row_values = gsheet.row_values(row)
+        gsheet.update_cell(row,len(row_values)+1,req["name"])
 
-    return
+    return {"201": "Success"}
+
+@app.route("/join", methods=['GET'])
+def join():
+    teams = get_teams()
+    return jsonify(teams)
 
 def get_teams():
     teams = gsheet.get_all_values()

@@ -14,6 +14,7 @@ import 'mdbreact/dist/css/mdb.css';
 // Import avatars for check-in boxes
 import PersonAvatar from '../images/personAvatar.png'
 import VenmoAvatar from '../images/venmoAvatar.png'
+import Phone from '../images/phone.png'
 
 function CheckIn() {
 
@@ -43,13 +44,19 @@ function CheckIn() {
     setAddVenmo(inputValue)
   }
 
+  const [addPhone, setAddPhone] = useState('')
+  const handlePhoneChange = (inputValue) => {
+    setAddPhone(inputValue)
+  }
+
   const handleFormSubmit = () => {
     fetch('/allset', {
       method: 'POST',
       body: JSON.stringify({
         name: addName,
         teamName: addTeamName,
-        venmo: addVenmo
+        venmo: addVenmo,
+        phone: addPhone
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -77,7 +84,8 @@ function CheckIn() {
 
           {/* Input Boxes */}
           <div className="inputs">
-            <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="FULL NAME" userInput={addName} onFormChange={handleNameChange} >Enter your full name</InputBox>
+            <InputBox type="text" name="TeamName" avatar={PersonAvatar} title="FULL NAME" userInput={addName} onFormChange={handleNameChange} >First Last</InputBox>
+            <InputBox type="number" name="Phone" avatar={Phone} title="PHONE" userInput={addPhone} onFormChange={handlePhoneChange} >Enter your phone number</InputBox>
             <InputBox type="text" name="CaptainName" avatar={PersonAvatar} title="TEAM NAME" userInput={addTeamName} onFormChange={handleTNChange} >Create your team name</InputBox>
             <InputBox type="text" name="Venmo" avatar={VenmoAvatar} title="YOUR VENMO" userInput={addVenmo} onFormChange={handleVenmoChange}> Enter your venmo username</InputBox>
           </div>
