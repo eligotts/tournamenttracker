@@ -50,7 +50,7 @@ function CheckIn() {
   }
 
   const handleFormSubmit = () => {
-    fetch('/allset', {
+    fetch('/api/allset', {
       method: 'POST',
       body: JSON.stringify({
         name: addName,
@@ -92,7 +92,7 @@ function CheckIn() {
 
           {/* Continue Button */}
           <div className="continueButton">
-            <Link to='/allset'>
+            <Link to='/api/allset'>
               <MDBBtn onClick={handleFormSubmit} color="amber">
                 CONTINUE
                 <img className="arrow" src={forwardArrow} alt="Forward Arrow" width="18px"/>

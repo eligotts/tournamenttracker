@@ -18,9 +18,9 @@ function App() {
             <div className="font-link">
               <Routes>
                 <Route path='/' element={<CreateJoin/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path='/join' element={<Join/>}/>
-                <Route path='/allset' element={<AllSet/>}/>
+                <Route path="/api/register" element={<Register/>}/>
+                <Route path='/api/join' element={<Join/>}/>
+                <Route path='/api/allset' element={<AllSet/>}/>
               </Routes>
             </div>
           </Router>
