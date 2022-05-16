@@ -1,4 +1,3 @@
-from re import template
 from flask import Flask, jsonify, request, render_template, json
 import gspread
 from google.oauth2 import service_account
@@ -56,4 +55,4 @@ def get_teams():
 
 if __name__ == "__main__":
     ##change this
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
