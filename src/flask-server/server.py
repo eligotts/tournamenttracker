@@ -27,7 +27,7 @@ def update_sheet():
     req = json.loads(request.data)
 
     try:
-        row = [req["venmo"], req["teamName"], req["phone"], req["name"]] # Create Team
+        row = [req["teamName"], req["name"], req["phone"], req["venmo"]]  # Create Team
         gsheet.insert_row(row, 2)
     except:
         cell = gsheet.find(req["teamName"])
