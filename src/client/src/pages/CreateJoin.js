@@ -72,11 +72,11 @@ function CreateJoin() {
         </div>
 
         <div className="btns">
-          <Link to='/register' >
+          <Link to='/api/register' >
             <MDBBtn color="red" className = "btn-create">CREATE TEAM</MDBBtn>
           </Link>
 
-          <Link to='/join'>
+          <Link to='/api/join'>
             <MDBBtn color="amber" className = "btn-join">JOIN TEAM</MDBBtn>
           </Link>
         </div>
