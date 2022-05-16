@@ -16,12 +16,14 @@ sh = client.open("SNU Volleyball")
 
 app = Flask(__name__, static_folder="../build", static_url_path='/')
 
+##WE DONT HAVE BACKEND FOR /REGISTER
+
 # API Route
-@app.route('/')
+@app.route('/api')
 def index():
     return app.send_static_file('index.html')
 
-@app.route("/allset", methods=['POST'])
+@app.route("/api/allset", methods=['POST'])
 def update_sheet():
 
     req = json.loads(request.data)
@@ -37,7 +39,7 @@ def update_sheet():
 
     return {"201": "Success"}
 
-@app.route("/join", methods=['GET'])
+@app.route("/api/join", methods=['GET'])
 def join():
     teams = get_teams()
     return jsonify(teams)
@@ -53,4 +55,5 @@ def get_teams():
     return teams
 
 if __name__ == "__main__":
+    ##change this
     app.run(debug=True)

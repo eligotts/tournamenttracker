@@ -16,7 +16,7 @@ function Join() {
 
   // // Fetch backend
   useEffect(() => {
-    fetch("/join").then(
+    fetch("/api/join").then(
       res => res.json()
     ).then(
       data => {
@@ -38,7 +38,7 @@ function Join() {
   }
 
   const handleSubmit = () => {
-    fetch('/allset', {
+    fetch('/api/allset', {
       method: 'POST',
       body: JSON.stringify({
         name: addName,
@@ -87,7 +87,7 @@ function Join() {
       {options.length === 0 &&
       <div className="team-subheader">
         <p>No teams have been registered yet.</p>
-        <Link to='/register'>
+        <Link to='/api/register'>
           <MDBBtn color="red" className = "btn-create">CREATE TEAM</MDBBtn>
         </Link>
       </div>}
@@ -112,7 +112,7 @@ function Join() {
       {options.length > 0 &&
       <div className="join-team-btn-div">
         <Link to={{
-          pathname: "/allset",
+          pathname: "/api/allset",
           state: { name: addName } // <-- not working
           }}>
           <MDBBtn onClick={handleSubmit} className="join-team-btn" color="amber">
