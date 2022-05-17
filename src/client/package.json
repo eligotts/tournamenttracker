@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "https://al3xisrobles.github.io/",
+  "homepage": "https://github.com/al3xisrobles/al3xisrobles.github.io",
   "version": "0.1.0",
   "private": true,
   "proxy": "0.0.0.0:5000",
