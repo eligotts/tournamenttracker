@@ -25,9 +25,9 @@ def not_found(e):
     return app.send_static_file('index.html')
 
 # API Route
-@app.route('/api')
-def index():
-    return app.send_static_file('index.html')
+# @app.route('/api')
+# def index():
+#     return app.send_static_file('index.html')
 
 @app.route("/api/allset", methods=['POST'])
 def update_sheet():
