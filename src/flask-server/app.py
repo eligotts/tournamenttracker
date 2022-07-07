@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, json
 import gspread
 from google.oauth2 import service_account
 import sys
+import os
 
 SCOPES = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
 SERVICE_ACCOUNT_FILE = './credentials.json'
@@ -13,14 +14,20 @@ client = gspread.authorize(credentials)
 gsheet = client.open("SNU Volleyball").sheet1
 sh = client.open("SNU Volleyball")
 
-app = Flask(__name__, static_folder="../build", static_url_path='/')
+app = Flask(__name__, static_folder='../../client/build', static_url_path='/')
 
-##WE DONT HAVE BACKEND FOR /REGISTER
-
-# API Route
-@app.route('/api')
+@app.route('/')
 def index():
     return app.send_static_file('index.html')
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
+# API Route
+# @app.route('/api')
+# def index():
+#     return app.send_static_file('index.html')
 
 @app.route("/api/allset", methods=['POST'])
 def update_sheet():
@@ -53,6 +60,8 @@ def get_teams():
 
     return teams
 
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=5000)
+
 if __name__ == "__main__":
-    ##change this
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
